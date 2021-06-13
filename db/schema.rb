@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_13_125408) do
+ActiveRecord::Schema.define(version: 2021_06_13_170430) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_06_13_125408) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "employees_count"
-    t.integer "overall_employees_count"
+    t.integer "overall_employees_count", default: 0
     t.index ["identification_number"], name: "index_companies_on_identification_number", unique: true
     t.index ["parent_id"], name: "index_companies_on_parent_id"
   end
