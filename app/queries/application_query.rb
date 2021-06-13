@@ -3,4 +3,3 @@ class ApplicationQuery
     new(*args, &block).call
   end
 end
-

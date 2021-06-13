@@ -14,11 +14,10 @@ class JsonWebToken
       # get payload; first index in decoded Array
       body = JWT.decode(token, HMAC_SECRET)[0]
       HashWithIndifferentAccess.new body
-        # rescue from all decode errors
+    # rescue from all decode errors
     rescue JWT::DecodeError => e
       # raise custom error to be handled by custom handler
       raise ExceptionHandler::InvalidToken, e.message
     end
   end
-
 end

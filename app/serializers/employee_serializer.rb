@@ -6,5 +6,4 @@ class EmployeeSerializer < Blueprinter::Base
   field :company_name do |employee, _|
     employee.company.name
   end
-
 end

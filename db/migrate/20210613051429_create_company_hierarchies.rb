@@ -6,11 +6,11 @@ class CreateCompanyHierarchies < ActiveRecord::Migration[6.0]
       t.integer :generations, null: false
     end
 
-    add_index :company_hierarchies, [:ancestor_id, :descendant_id, :generations],
-      unique: true,
-      name: "company_anc_desc_idx"
+    add_index :company_hierarchies, %i[ancestor_id descendant_id generations],
+              unique: true,
+              name: 'company_anc_desc_idx'
 
     add_index :company_hierarchies, [:descendant_id],
-      name: "company_desc_idx"
+              name: 'company_desc_idx'
   end
 end

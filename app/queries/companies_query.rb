@@ -1,6 +1,5 @@
 class CompaniesQuery < ApplicationQuery
-
-  def initialize (query_params = {})
+  def initialize(query_params = {})
     @query_params = query_params
   end
 
@@ -30,5 +29,4 @@ class CompaniesQuery < ApplicationQuery
   def valid_filters?
     query_params[:less_operative_limit] == 'true'
   end
-
 end

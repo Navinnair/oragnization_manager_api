@@ -1,5 +1,4 @@
 class Message
-
   class << self
     def not_found(record = 'record')
       "Sorry, #{record} not found."
@@ -32,7 +31,5 @@ class Message
     def expired_token
       'Sorry, your token has expired. Please login to continue.'
     end
-
   end
-
 end

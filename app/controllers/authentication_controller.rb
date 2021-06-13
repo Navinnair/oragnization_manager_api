@@ -3,7 +3,7 @@ class AuthenticationController < ApplicationController
 
   def authenticate
     auth_token = AuthenticateUser.call(auth_params)
-    render json: {auth_token: auth_token}
+    render json: { auth_token: auth_token }
   end
 
   private

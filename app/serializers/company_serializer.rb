@@ -6,5 +6,4 @@ class CompanySerializer < Blueprinter::Base
   field :parent_company_name do |company, _|
     company.parent.present? ? company.parent.name : ''
   end
-
 end

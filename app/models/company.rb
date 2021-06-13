@@ -22,15 +22,14 @@ class Company < ApplicationRecord
   def ensure_no_employee_records
     if employees.any?
       errors.add(:base, 'cannot delete, employee records found.')
-      return false
+      false
     end
   end
 
   def ensure_no_child_company_records
     if child_companies.any?
       errors.add(:base, 'cannot delete, child companies found.')
-      return false
+      false
     end
   end
-
 end

@@ -16,7 +16,8 @@ class AuthenticateUser < ApplicationService
   # verify user credentials
   def verified_user
     user = User.find_by(email: email)
-    return user if user && user.authenticate(password)
+    return user if user&.authenticate(password)
+
     raise(ExceptionHandler::AuthenticationError, Message.invalid_credentials)
   end
 end
