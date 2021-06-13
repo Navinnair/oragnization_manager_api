@@ -12,11 +12,11 @@ class Employee < ApplicationRecord
 
   # increment the count for the employees current company and ancestors
   def increment_all_employee_count
-    EmployeeCounterWorker.perform_in(5.seconds, company_id, 'increment')
+    EmployeeCounterWorker.perform_async(company_id, 'increment')
   end
 
   # decrement the count for the employees current company and ancestors
   def decrement_all_employee_count
-    EmployeeCounterWorker.perform_in(5.seconds, company_id, 'decrement')
+    EmployeeCounterWorker.perform_async(company_id, 'decrement')
   end
 end
