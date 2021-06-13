@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     scope module: :v1 do
-      resources :companies, only: [:index, :show, :create, :destroy]
+      resources :companies, only: [:index, :show, :create, :destroy] do
+        resources :employees, only: [:show, :create, :destroy]
+      end
     end
   end
 end
