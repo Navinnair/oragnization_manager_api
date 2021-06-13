@@ -1,4 +1,4 @@
-class AuthorizeApiRequest
+class AuthorizeApiRequest < ApplicationService
   def initialize(headers = {})
     @headers = headers
   end

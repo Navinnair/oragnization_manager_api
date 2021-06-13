@@ -1,7 +1,7 @@
-class AuthenticateUser
-  def initialize(email, password)
-    @email = email
-    @password = password
+class AuthenticateUser < ApplicationService
+  def initialize(auth_params)
+    @email = auth_params[:email]
+    @password = auth_params[:password]
   end
 
   # Service entry point
