@@ -20,6 +20,8 @@ gem 'jwt'
 gem 'closure_tree'
 # for json serialization
 gem 'blueprinter', require: 'blueprinter'
+# worker
+gem 'sidekiq'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
