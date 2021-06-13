@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 # To achieve hierarchical model and related querying
 gem 'closure_tree'
+# for json serialization
+gem 'blueprinter', require: 'blueprinter'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
