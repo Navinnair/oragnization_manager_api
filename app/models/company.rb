@@ -1,4 +1,7 @@
 class Company < ApplicationRecord
+  # to build hierarchical data
+  has_closure_tree
+
   # sub companies association using self join
   belongs_to :parent, class_name: 'Company', optional: true
 
