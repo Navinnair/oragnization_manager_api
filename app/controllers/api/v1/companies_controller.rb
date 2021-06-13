@@ -3,7 +3,7 @@ class Api::V1::CompaniesController < ApplicationController
 
   # GET /companies
   def index
-    companies = Company.all
+    companies = CompaniesQuery.call(query_params)
     render json: { data: CompanySerializer.render_as_json(companies) }
   end
 
@@ -36,6 +36,11 @@ class Api::V1::CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(:name, :identification_number, :location, :required_employee_count, :parent_id)
+  end
+
+  def query_params
+    # less_operative_limit used to filter list of all companies where the amount of employees is less than required
+    params.permit(:less_operative_limit)
   end
 
   def load_company
