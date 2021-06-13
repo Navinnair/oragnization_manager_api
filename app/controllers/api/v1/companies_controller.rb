@@ -1,33 +1,33 @@
 class Api::V1::CompaniesController < ApplicationController
-  before_action :load_company, only: [ :update, :show, :edit, :destroy ]
+  before_action :load_company, only: [ :show, :destroy ]
 
   # GET /companies
   def index
     companies = Company.all
-    render json: { success: true, data: CompanySerializer.render_as_json(companies) }
+    render json: { data: CompanySerializer.render_as_json(companies) }
   end
 
   # GET /company/:id
   def show
-    render json: { success: true, data: CompanySerializer.render_as_json(@company) }
+    render json: { data: CompanySerializer.render_as_json(@company) }
   end
 
   # POST /companies
   def create
     company = Company.new(company_params)
     if company.save
-      render json: { success: true, data: CompanySerializer.render_as_json(company) }
+      render json: { data: CompanySerializer.render_as_json(company) }
     else
-      render json: { success: false, errors: company.errors.messages }
+      render json: { errors: company.errors.messages }, status: 400
     end
   end
 
   # DELETE /company/:id
   def destroy
     if @company.destroy
-      render json: { success: true, message: 'Successfully deleted' }
+      render json: { message: 'Successfully deleted' }
     else
-      render json: { success: false, errors: @company.errors.messages }
+      render json: { errors: @company.errors.messages }, status: 400
     end
   end
 
