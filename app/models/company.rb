@@ -11,6 +11,7 @@ class Company < ApplicationRecord
   validates :name, presence: true
   validates :location, presence: true
   validates :required_employee_count, numericality: { only_integer: true, greater_than: 0 }
+  validates :identification_number, presence: true
   validates :identification_number, uniqueness: true
 
   before_destroy :ensure_no_employee_records
